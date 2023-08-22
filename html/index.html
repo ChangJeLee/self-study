@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- 문서의 유형과 버전을 정의 HTML5의 선언입니다. HTML5는 
+    이전 버전의 HTML과 XHTML을 대체하면서 더 유연하고 기능이 풍부한 웹 
+    페이지를 개발할 수 있게 해주는 최신 버전-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- 인코딩 방식을 지정하는 역할을 합니다. 
+            UTF-8은 유니코드 문자 집합을 인코딩하는 방식 중 하나로, 대부분의 언어와 문자를 지원 -->
+        <title>self study ! </title>
+    </head>
+    <body>
+
+
+        <h1 id="hello">안녕하시렵니까 ! </h1>
+        <h1 id="hi">JS 복습중입니다.</h1>
+        <script>
+            document.getElementById('hello').innerHTML='안녕';
+            document.getElementById('hello').style.fontSize='16px';
+            document.getElementById('hello').style.color='red';
+            document.getElementById('hi').innerHTML='JS 좃고수입니다.';
+            // html 문서 : document
+            // . : ~의
+            // element : html 요소
+            // ById('hello') : id가 hello 인 것  
+        </script>
+
+
+    </body>
+</html>
+

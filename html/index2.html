@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>self study ! </title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="alert-box" id="insertidpwd">
+            <p class="id" id="title"></p>
+            <button id="close">닫기</button>
+        </div>
+
+        <button onclick="classTest('아이디 입력하셈')">버튼1</button>
+        <button onclick="alertOpen('패스워드 입력하셈')">버튼2</button>
+
+        <script>
+            function alertOpen(a){
+                document.getElementById('title').innerHTML=a;
+                document.getElementById('insertidpwd').style.display='block';
+            }
+
+            // onclick을 굳이 button 안에 선언하지 않아도 이렇게 이벤트 리스너를 사용하면 깔끔
+            // 여기서 함수 뒤에 들어가는 function은 콜백함수 라고 부름
+            document.getElementById('close').addEventListener('click', function(){
+                document.getElementById('insertidpwd').style.display='none';             
+            });
+
+            function noneDisplay(){
+                document.getElementById('insertidpwd').style.display='none';
+            }
+            // classname은 class를 다 찾기 때문에 [0] 번째만 찾으라고 지정해줘야 함
+            // get을 썼을때 나오는 bytagname byid byclassname 등등 다 셀렉터라고함
+            function classTest(a){
+                document.getElementsByClassName('id')[0].innerHTML=a;
+                document.getElementById('insertidpwd').style.display='block';
+            }
+
+        </script>
+    </body>
+</html>
+

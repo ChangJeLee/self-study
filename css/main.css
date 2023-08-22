@@ -1,0 +1,16 @@
+.alert-box {
+    background-color: skyblue;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+    display: none;
+    /* UI를 숨기는 것임 display는 보여주고 싶으면 none -> block 으로 바꿔 */
+}
+
+.list-group {
+    display : none
+  }
+
+  .show {
+    display : block
+ }
