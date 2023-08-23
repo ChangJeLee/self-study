@@ -17,13 +17,17 @@
 
         <form action="success.html">
           <div class="my-3">
-            <input type="text" class="form-control" id="input-test">
+            <input type="text" class="form-control" id="input-id">
            </div>
            <div class="my-3">
-             <input type="password" class="form-control">
+             <input type="password" class="form-control" id="input-pwd">
            </div>
            <button type="submit" class="btn btn-primary" id="input-submit">전송</button>
            <button type="button" class="btn btn-danger" id="close">닫기</button>
+           <br><br>
+           <div class="alert alert-danger " role="alert" id="pwd-alert">
+            패스워드 길이가 6글자 미만입니다 !
+          </div>
         </form> 
 
       </div>
@@ -51,6 +55,8 @@
         <button id="login" class="btn btn-danger">로그인</button>
       </div>
 
+
+
   </body>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   
@@ -58,25 +64,40 @@
 
     $('#navbar-toggle').on('click', function(){
       $('.list-group').toggle();
-    })
+    });
 
     $('#login').on('click', function(){
       $('.black-bg').addClass('show-modal');
-    })
+    });
 
     $('#close').on('click', function(){
       $('.black-bg').removeClass('show-modal');
-    })
+    });
 
-    $('#input-submit').on('click', function(){
-      if($('#input-test').val() === "") {
-        alert('아이디 입력하세요');
+    $('#input-submit').on('click', function(e){
+      if($('#input-id').val() != "" && $('#input-pwd').val() != "" && $('#input-pwd').val().length > 6) {
+      } else if ($('#input-id').val() === "") {
+        e.preventDefault();
+        alert('아이디를 입력하세요');
+      } else if ($('#input-pwd').val() === "") {
+        e.preventDefault();
+        alert('패스워드를 입력하세요');
+      } else if($('#input-id').val() === "" && $('#input-pwd').val() === "") {
+        e.preventDefault(); //폼 전송 막는 것
+        alert('아이디와 패스워드를 입력하세요');
+      } else if ($('#input-id').val() != "" && $('#input-pwd').val() != "" && $('#input-pwd').val().length < 6) {
+        e.preventDefault(); //폼 전송 막는 것
+        alert('패스워드가 6글자 미만입니다.');
       }
-    })
+    });
 
+    $('#input-pwd').on('input', function(){
+      if($('#input-pwd').val().length > 6) {
+        $('#pwd-alert').addClass('none');
+      }
+    });
 
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>
