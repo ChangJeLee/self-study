@@ -87,7 +87,6 @@
     });
 
     $('#input-submit').on('click', function(e){
-<<<<<<< HEAD
       if($('#input-test').val() == "") {
         e.preventDefault();
         alert('아이디 입력하세요');
@@ -117,7 +116,7 @@
       } else {
         $('.badge').text(`Light 🔄`);
         $('#body-color').removeClass('dark');
-=======
+
       if($('#input-id').val() != "" && $('#input-pwd').val() != "" && $('#input-pwd').val().length > 6) {
       } else if ($('#input-id').val() === "") {
         e.preventDefault();
@@ -137,7 +136,7 @@
     $('#input-pwd').on('input', function(){
       if($('#input-pwd').val().length > 6) {
         $('#pwd-alert').addClass('none');
->>>>>>> 14c51c2665ec68a07e3971b8c0564f643a4c3437
+
       }
     });
 
