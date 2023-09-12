@@ -10,7 +10,7 @@
     <link href="/css/main.css" rel="stylesheet">
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body class="dark" id="body-color">
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -20,18 +20,24 @@
             <input type="text" class="form-control" id="input-test">
            </div>
            <div class="my-3">
-             <input type="password" class="form-control">
+             <input type="password" class="form-control" id="pwd-test">
            </div>
            <button type="submit" class="btn btn-primary" id="input-submit">전송</button>
            <button type="button" class="btn btn-danger" id="close">닫기</button>
+           <br>
+           <br>
+           <div class="alert alert-danger" id="length-check">
+            패스워드를 입력하세요.
+          </div>
         </form> 
 
       </div>
     </div> 
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Dark 🔄</span>
           <button id="navbar-toggle" class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -68,12 +74,38 @@
       $('.black-bg').removeClass('show-modal');
     })
 
-    $('#input-submit').on('click', function(){
-      if($('#input-test').val() === "") {
+    $('#input-submit').on('click', function(e){
+      if($('#input-test').val() == "") {
+        e.preventDefault();
         alert('아이디 입력하세요');
+      } else if ($('#close-test').val().length < 6) {
+        e.preventDefault();
+        alert('패스워드가 너무 짧습니다');
       }
     })
+  
+    var i = 0;
+    $('#pwd-test').on('input', function(){
+      i+=1;
+      if(i < 6) {
+        $('#length-check').text(`지금 패스워드 ${i}글자 밖에 안됩니다.`);
+      } else {
+        $('#length-check').text(`전송을 누르셈`);
+      }
+    });
 
+    var clickCount = 0;
+    $('.badge').on('click', function(){
+      clickCount+=1;
+      if(clickCount % 2 == 0) {
+        $('.badge').text(`Dark 🔄`);
+        $('#body-color').addClass('dark');
+
+      } else {
+        $('.badge').text(`Light 🔄`);
+        $('#body-color').removeClass('dark');
+      }
+    });
 
   </script>
 

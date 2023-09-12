@@ -28,6 +28,9 @@
   transition: all 1s;
 }
 
+.alert {
+  visibility: visible;
+}
 .white-bg {
   background: white;
   border-radius: 5px;
@@ -43,4 +46,9 @@
 .main-bg {
   padding: 100px 20px;
   background: lightgray;
+}
+
+.dark {
+  background: black;
+  color: white;
 }
