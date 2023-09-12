@@ -7,6 +7,10 @@
     /* UI를 숨기는 것임 display는 보여주고 싶으면 none -> block 으로 바꿔 */
 }
 
+.alert {
+  display: block
+}
+
 .list-group {
     display : none
   }
@@ -15,6 +19,9 @@
     display : block
  }
 
+ .none {
+    display: none
+ }
  .black-bg {
   width : 100%;
   height : 100%;
